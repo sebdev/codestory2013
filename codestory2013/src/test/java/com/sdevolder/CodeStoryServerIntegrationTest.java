@@ -21,7 +21,7 @@ public class CodeStoryServerIntegrationTest {
     public static void initServletContainer() throws Exception {
         tester = new ServletTester();
         tester.setContextPath("/");
-        tester.addServlet(CodeStoryServlet.class, "/*");
+        tester.addServlet(CodeStoryServlet.class, "/");
         tester.start();
     }
 
@@ -39,7 +39,7 @@ public class CodeStoryServerIntegrationTest {
         HttpTester response = new HttpTester();
         request.setMethod("GET");
         request.setHeader("Host", "tester");
-        request.setURI("/balbalbalbla");
+        request.setURI("/?q=Quelle+est+ton+adresse+email");
         request.setVersion("HTTP/1.0");
 
         response.parse(tester.getResponses(request.generate()));

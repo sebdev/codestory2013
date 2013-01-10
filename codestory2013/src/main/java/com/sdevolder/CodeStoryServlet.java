@@ -1,6 +1,7 @@
 package com.sdevolder;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -20,7 +21,7 @@ public class CodeStoryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.info("A request has arrived");
         @SuppressWarnings("unchecked")
-        Map<String, String> parameterMap = req.getParameterMap();
+        Map<String, Object> parameterMap = req.getParameterMap();
         log.info("It contains " + parameterMap.size() + " parameters");
         if (parameterMap.size() > 0) {
             log.info(buildParamList(parameterMap));
@@ -28,7 +29,7 @@ public class CodeStoryServlet extends HttpServlet {
         resp.getWriter().write("sebastien.devolder@gmail.com");
     }
 
-    protected String buildParamList(Map<String, String> parameterMap) {
+    protected String buildParamList(Map<String, Object> parameterMap) {
         StringBuilder sb = new StringBuilder("Parameters list\n");
         Set<String> keySet = parameterMap.keySet();
         Iterator<String> iterator = keySet.iterator();
@@ -37,11 +38,17 @@ public class CodeStoryServlet extends HttpServlet {
             index++;
             String paramName = iterator.next();
             sb.append("Param " + index + ": [" + paramName + "]");
-            String value = parameterMap.get(paramName);
-            sb.append("[" + value + "]");
+            Object value = parameterMap.get(paramName);
+            String valueString;
+            if (value instanceof String[]) {
+                valueString = "L";// Pour marquer la valeur du paramètre comme étant une liste
+                valueString += Arrays.toString(((String[]) value));
+            } else {
+                valueString = value.toString();
+            }
+            sb.append("[" + valueString + "]");
             sb.append("\n");
         }
         return sb.toString();
     }
-
 }
