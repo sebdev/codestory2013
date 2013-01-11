@@ -34,19 +34,33 @@ public class CodeStoryServerIntegrationTest {
     }
 
     @Test
-    public void test() throws IOException, Exception {
+    public void testEmail() throws IOException, Exception {
         HttpTester request = new HttpTester();
         HttpTester response = new HttpTester();
         request.setMethod("GET");
         request.setHeader("Host", "tester");
         request.setURI("/?q=Quelle+est+ton+adresse+email");
         request.setVersion("HTTP/1.0");
-
         response.parse(tester.getResponses(request.generate()));
 
         Assertions.assertThat(response.getMethod()).isNull();
         Assertions.assertThat(response.getStatus()).isEqualTo(200);
-        Assertions.assertThat(response.getContent()).isEqualTo("sebastien.devolder@gmail.com");
+        Assertions.assertThat(response.getContent()).isEqualTo(AnswerSentences.SEBASTIEN_DEVOLDER_GMAIL_COM);
+    }
+
+    @Test
+    public void testMailingList() throws IOException, Exception {
+        HttpTester request = new HttpTester();
+        HttpTester response = new HttpTester();
+        request.setMethod("GET");
+        request.setHeader("Host", "tester");
+        request.setURI("/?q=Es+tu+abonne+a+la+mailing+list(OUI/NON)");
+        request.setVersion("HTTP/1.0");
+        response.parse(tester.getResponses(request.generate()));
+
+        Assertions.assertThat(response.getMethod()).isNull();
+        Assertions.assertThat(response.getStatus()).isEqualTo(200);
+        Assertions.assertThat(response.getContent()).isEqualTo(AnswerSentences.OUI);
     }
 
 }
