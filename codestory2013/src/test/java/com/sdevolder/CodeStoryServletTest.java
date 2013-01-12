@@ -54,6 +54,19 @@ public class CodeStoryServletTest {
     }
 
     @Test
+    public void testGetQuestionHeureux() throws IOException, ServletException {
+
+        Map<String, Object> value = new HashMap<String, Object>(1);
+        value.put("q", AskSentences.QUESTION_HEUREUX);
+        Mockito.when(httpServletRequest.getParameterMap()).thenReturn(value);
+        Mockito.when(httpServletRequest.getParameter("q")).thenReturn(AskSentences.QUESTION_HEUREUX);
+        Mockito.when(httpServletResponse.getWriter()).thenReturn(writer);
+
+        runner.doGet(httpServletRequest, httpServletResponse);
+        Mockito.verify(writer).write(AnswerSentences.OUI);
+    }
+
+    @Test
     public void testGetUnknownQuestion() throws IOException, ServletException {
         Map<String, Object> value = new HashMap<String, Object>(1);
         value.put("q", "test");

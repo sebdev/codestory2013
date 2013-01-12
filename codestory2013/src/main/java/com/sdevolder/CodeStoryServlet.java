@@ -21,7 +21,7 @@ public class CodeStoryServlet extends HttpServlet {
             String value = req.getParameter("q");
             if (value.equals(AskSentences.QUESTION_EMAIL)) {
                 answer = AnswerSentences.SEBASTIEN_DEVOLDER_GMAIL_COM;
-            } else if (value.equals(AskSentences.QUESTION_MAILINGLIST)) {
+            } else if (value.equals(AskSentences.QUESTION_MAILINGLIST) || (value.equals(AskSentences.QUESTION_HEUREUX))) {
                 answer = AnswerSentences.OUI;
             }
         }

@@ -63,4 +63,19 @@ public class CodeStoryServerIntegrationTest {
         Assertions.assertThat(response.getContent()).isEqualTo(AnswerSentences.OUI);
     }
 
+    @Test
+    public void testHeureux() throws IOException, Exception {
+        HttpTester request = new HttpTester();
+        HttpTester response = new HttpTester();
+        request.setMethod("GET");
+        request.setHeader("Host", "tester");
+        request.setURI("/?q=Es+tu+heureux+de+participer(OUI/NON)");
+        request.setVersion("HTTP/1.0");
+        response.parse(tester.getResponses(request.generate()));
+
+        Assertions.assertThat(response.getMethod()).isNull();
+        Assertions.assertThat(response.getStatus()).isEqualTo(200);
+        Assertions.assertThat(response.getContent()).isEqualTo(AnswerSentences.OUI);
+    }
+
 }
