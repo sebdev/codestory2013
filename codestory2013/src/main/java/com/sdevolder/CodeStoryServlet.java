@@ -11,21 +11,25 @@ import org.apache.log4j.Logger;
 
 public class CodeStoryServlet extends HttpServlet {
 
+    private static final String LANGUAGE_PROPERTIES = "language.properties";
+    private static final String PARAMETER_GET = "q";
     private final Logger log = Logger.getLogger(CodeStoryServlet.class);
+    private ResponseBot responseBot;
+
+    @Override
+    public void init() throws ServletException {
+        responseBot = new ResponseBot(LANGUAGE_PROPERTIES);
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.info(req.toString());
-        String answer = AnswerSentences.VOUS_POUVEZ_REPETER_LA_QUESTION;
-        if (req.getParameterMap().size() == 1 && req.getParameterMap().keySet().iterator().next().equals("q")) {
-            String value = req.getParameter("q");
-            if (value.equals(AskSentences.QUESTION_EMAIL)) {
-                answer = AnswerSentences.SEBASTIEN_DEVOLDER_GMAIL_COM;
-            } else if (value.equals(AskSentences.QUESTION_MAILINGLIST)) {
-                answer = AnswerSentences.OUI;
-            }
+        String response = "ERROR";
+        if (req.getParameterMap().size() == 1 && req.getParameterMap().keySet().iterator().next().equals(PARAMETER_GET)) {
+            String value = req.getParameter(PARAMETER_GET);
+            response = responseBot.getAnswer(value);
         }
 
-        resp.getWriter().write(answer);
+        resp.getWriter().write(response);
     }
 }
