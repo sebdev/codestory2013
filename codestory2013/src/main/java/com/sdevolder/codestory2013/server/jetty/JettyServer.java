@@ -45,4 +45,10 @@ public class JettyServer extends AbstractServer {
         log.info("Server is started");
     }
 
+    @Override
+    public void stopServer() throws Exception {
+        // TODO Auto-generated method stub
+
+    }
+
 }

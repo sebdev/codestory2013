@@ -1,16 +1,20 @@
 package com.sdevolder.codestory2013;
 
 import com.sdevolder.codestory2013.server.AbstractServer;
+import com.sdevolder.codestory2013.server.grizly.GrizzlyServer;
 import com.sdevolder.codestory2013.server.jetty.JettyServer;
 
 public class Runner {
 
     private static final String JETTY = "JETTY";
+    private static final Object GRIZZLY = "GRIZZLY";
     private AbstractServer server;
 
     public Runner(String serverType, int port) {
         if (JETTY.equals(serverType)) {
             server = new JettyServer(port);
+        } else if (GRIZZLY.equals(serverType)) {
+            server = new GrizzlyServer(port);
         }
 
     }

@@ -13,11 +13,6 @@ import com.sdevolder.codestory2013.dialog.DialogBot;
 
 public class CodeStoryServlet extends HttpServlet {
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        log.info(req.toString());
-    }
-
     private static final String LANGUAGE_PROPERTIES = "language.properties";
     private static final String PARAMETER_GET = "q";
     private final Logger log = Logger.getLogger(CodeStoryServlet.class);
@@ -30,7 +25,6 @@ public class CodeStoryServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        log.info(req.toString());
         String response = "ERROR";
         if (isRequestContentValid(req)) {
             String value = req.getParameter(PARAMETER_GET);

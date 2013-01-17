@@ -9,7 +9,7 @@ import java.util.Properties;
  * Dictionnaire de question réponse chargé à partir d'un fichier de propriétés
  */
 public class DialogBot {
-    private static final String ASK_DEFAULT_KEY = "ask.";
+    private static final String ASK_PREFIX_KEY = "ask";
     private static final String ANSWER_DEFAULT_KEY = "answer.default";
     private static final String REG_EXP_FOR_DOT_SEPARATOR = "[.]";
     private static final String ANSWER_PREFIX_KEY = "answer.";
@@ -67,6 +67,6 @@ public class DialogBot {
     }
 
     private boolean isValidAskKey(String[] tokens) {
-        return tokens.length == 2 && (tokens[0].equals(ASK_DEFAULT_KEY));
+        return tokens.length == 2 && (tokens[0].equals(ASK_PREFIX_KEY));
     }
 }

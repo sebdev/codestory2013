@@ -6,4 +6,9 @@ public abstract class AbstractServer {
      * Démarrer le serveur
      */
     public abstract void launchServer() throws Exception;
+
+    /**
+     * Arrêter le serveur
+     */
+    public abstract void stopServer() throws Exception;
 }
