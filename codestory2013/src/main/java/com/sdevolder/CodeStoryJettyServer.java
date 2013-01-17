@@ -10,11 +10,16 @@ import org.eclipse.jetty.server.handler.RequestLogHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
-public class CodeStoryServer {
+public class CodeStoryJettyServer extends AbstractCodeStoryServer {
 
-    private static final int port = 8080;
-    private final Logger log = Logger.getLogger(CodeStoryServer.class);
+    private final int port;
+    private final Logger log = Logger.getLogger(CodeStoryJettyServer.class);
 
+    public CodeStoryJettyServer(int port) {
+        this.port = port;
+    }
+
+    @Override
     public void launchServer() throws Exception {
         Server server = new Server(port);
         ServletContextHandler context = new ServletContextHandler(server, "/");
@@ -35,11 +40,6 @@ public class CodeStoryServer {
 
         server.start();
         log.info("Server is started");
-
     }
 
-    public static void main(String[] args) throws Exception {
-        CodeStoryServer runner = new CodeStoryServer();
-        runner.launchServer();
-    }
 }

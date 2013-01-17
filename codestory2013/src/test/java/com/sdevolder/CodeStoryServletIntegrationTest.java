@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.mortbay.jetty.testing.HttpTester;
 import org.mortbay.jetty.testing.ServletTester;
 
-public class CodeStoryServerIntegrationTest {
+public class CodeStoryServletIntegrationTest {
 
     private static ServletTester tester;
     private HttpTester request;

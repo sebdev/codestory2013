@@ -78,7 +78,7 @@
 							</descriptorRefs>
 							<archive>
 								<manifest>
-									<mainClass>com.sdevolder.CodeStoryServer</mainClass>
+									<mainClass>com.sdevolder.Runner</mainClass>
 								</manifest>
 							</archive>
 						</configuration>
