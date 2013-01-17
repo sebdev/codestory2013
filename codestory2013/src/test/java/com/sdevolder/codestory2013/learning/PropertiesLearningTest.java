@@ -1,4 +1,4 @@
-package com.sdevolder;
+package com.sdevolder.codestory2013.learning;
 
 import java.util.Properties;
 

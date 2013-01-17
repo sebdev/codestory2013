@@ -1,4 +1,4 @@
-package com.sdevolder;
+package com.sdevolder.codestory2013.server.jetty.servlet;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -13,6 +13,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import com.sdevolder.codestory2013.server.jetty.servlet.CodeStoryServlet;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CodeStoryServletTest {

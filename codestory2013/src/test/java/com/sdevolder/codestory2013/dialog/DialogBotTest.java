@@ -1,4 +1,4 @@
-package com.sdevolder;
+package com.sdevolder.codestory2013.dialog;
 
 import java.io.IOException;
 
@@ -6,18 +6,20 @@ import org.fest.assertions.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ResponseBotTest {
+import com.sdevolder.codestory2013.dialog.DialogBot;
+
+public class DialogBotTest {
 
     private static final String YES = "OUI";
     private static final String DEFAULT_ANSWER = "Vous pouvez répéter la question?";
     private static final String UNKWNON_QUESTION = "unkwnon question";
     private static final String FILENAME = "language.test.properties";
     private static final String KNOWN_QUESTION = "Es tu pret a recevoir une enonce au format markdown par http post(OUI/NON)";
-    private ResponseBot bot;
+    private DialogBot bot;
 
     @Before
     public void setup() {
-        bot = new ResponseBot(FILENAME);
+        bot = new DialogBot(FILENAME);
     }
 
     @Test

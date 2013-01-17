@@ -1,4 +1,4 @@
-package com.sdevolder;
+package com.sdevolder.codestory2013.server.jetty;
 
 import org.apache.log4j.Logger;
 import org.eclipse.jetty.server.Handler;
@@ -10,12 +10,15 @@ import org.eclipse.jetty.server.handler.RequestLogHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
-public class CodeStoryJettyServer extends AbstractCodeStoryServer {
+import com.sdevolder.codestory2013.server.AbstractServer;
+import com.sdevolder.codestory2013.server.jetty.servlet.CodeStoryServlet;
+
+public class JettyServer extends AbstractServer {
 
     private final int port;
-    private final Logger log = Logger.getLogger(CodeStoryJettyServer.class);
+    private final Logger log = Logger.getLogger(JettyServer.class);
 
-    public CodeStoryJettyServer(int port) {
+    public JettyServer(int port) {
         this.port = port;
     }
 

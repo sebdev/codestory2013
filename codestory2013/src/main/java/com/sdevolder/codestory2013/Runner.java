@@ -1,13 +1,16 @@
-package com.sdevolder;
+package com.sdevolder.codestory2013;
+
+import com.sdevolder.codestory2013.server.AbstractServer;
+import com.sdevolder.codestory2013.server.jetty.JettyServer;
 
 public class Runner {
 
     private static final String JETTY = "JETTY";
-    private AbstractCodeStoryServer server;
+    private AbstractServer server;
 
     public Runner(String serverType, int port) {
         if (JETTY.equals(serverType)) {
-            server = new CodeStoryJettyServer(port);
+            server = new JettyServer(port);
         }
 
     }

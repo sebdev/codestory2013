@@ -1,4 +1,4 @@
-package com.sdevolder;
+package com.sdevolder.codestory2013.server.jetty.servlet;
 
 import java.io.IOException;
 
@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+
+import com.sdevolder.codestory2013.dialog.DialogBot;
 
 public class CodeStoryServlet extends HttpServlet {
 
@@ -19,11 +21,11 @@ public class CodeStoryServlet extends HttpServlet {
     private static final String LANGUAGE_PROPERTIES = "language.properties";
     private static final String PARAMETER_GET = "q";
     private final Logger log = Logger.getLogger(CodeStoryServlet.class);
-    private ResponseBot responseBot;
+    private DialogBot responseBot;
 
     @Override
     public void init() throws ServletException {
-        responseBot = new ResponseBot(LANGUAGE_PROPERTIES);
+        responseBot = new DialogBot(LANGUAGE_PROPERTIES);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.sdevolder;
+package com.sdevolder.codestory2013.server.jetty.servlet;
 
 import java.io.IOException;
 
@@ -9,6 +9,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mortbay.jetty.testing.HttpTester;
 import org.mortbay.jetty.testing.ServletTester;
+
+import com.sdevolder.codestory2013.server.jetty.servlet.CodeStoryServlet;
 
 public class CodeStoryServletIntegrationTest {
 

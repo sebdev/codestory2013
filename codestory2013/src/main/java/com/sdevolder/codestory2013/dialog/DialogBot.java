@@ -1,4 +1,4 @@
-package com.sdevolder;
+package com.sdevolder.codestory2013.dialog;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -8,7 +8,8 @@ import java.util.Properties;
 /**
  * Dictionnaire de question réponse chargé à partir d'un fichier de propriétés
  */
-public class ResponseBot {
+public class DialogBot {
+    private static final String ASK_DEFAULT_KEY = "ask.";
     private static final String ANSWER_DEFAULT_KEY = "answer.default";
     private static final String REG_EXP_FOR_DOT_SEPARATOR = "[.]";
     private static final String ANSWER_PREFIX_KEY = "answer.";
@@ -18,11 +19,11 @@ public class ResponseBot {
     /**
      * Prend en paramètre le nom du fichier de questions/réponses à charger.
      */
-    public ResponseBot(String fileName) {
+    public DialogBot(String fileName) {
         try {
             constructMapping(fileName);
         } catch (IOException e) {
-            throw new ResponseBotException(e);
+            throw new DialogBotException(e);
         }
     }
 
@@ -66,6 +67,6 @@ public class ResponseBot {
     }
 
     private boolean isValidAskKey(String[] tokens) {
-        return tokens.length == 2 && (tokens[0].equals("ask"));
+        return tokens.length == 2 && (tokens[0].equals(ASK_DEFAULT_KEY));
     }
 }
