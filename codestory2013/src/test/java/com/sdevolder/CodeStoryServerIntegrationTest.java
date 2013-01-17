@@ -74,5 +74,4 @@ public class CodeStoryServerIntegrationTest {
         Assertions.assertThat(response.getStatus()).isEqualTo(200);
         Assertions.assertThat(response.getContent()).isEqualTo("OUI");
     }
-
 }
