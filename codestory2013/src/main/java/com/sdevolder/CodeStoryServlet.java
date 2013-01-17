@@ -11,6 +11,11 @@ import org.apache.log4j.Logger;
 
 public class CodeStoryServlet extends HttpServlet {
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.info(req.toString());
+    }
+
     private static final String LANGUAGE_PROPERTIES = "language.properties";
     private static final String PARAMETER_GET = "q";
     private final Logger log = Logger.getLogger(CodeStoryServlet.class);

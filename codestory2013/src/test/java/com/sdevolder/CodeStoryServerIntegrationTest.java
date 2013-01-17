@@ -32,7 +32,6 @@ public class CodeStoryServerIntegrationTest {
     public void setup() {
         request = new HttpTester();
         response = new HttpTester();
-        request.setMethod("GET");
         request.setHeader("Host", "tester");
         request.setVersion("HTTP/1.0");
     }
@@ -46,7 +45,8 @@ public class CodeStoryServerIntegrationTest {
     }
 
     @Test
-    public void testEmail() throws IOException, Exception {
+    public void testGetMethodWithAnswerEmail() throws IOException, Exception {
+        request.setMethod("GET");
         request.setURI("/?q=Quelle+est+ton+adresse+email");
         response.parse(tester.getResponses(request.generate()));
 
@@ -56,22 +56,14 @@ public class CodeStoryServerIntegrationTest {
     }
 
     @Test
-    public void testMailingList() throws IOException, Exception {
-        request.setURI("/?q=Es+tu+abonne+a+la+mailing+list(OUI/NON)");
+    public void testPostMethod() throws IOException, Exception {
+        request.setMethod("POST");
+        request.setURI("/");
         response.parse(tester.getResponses(request.generate()));
 
-        Assertions.assertThat(response.getMethod()).isNull();
-        Assertions.assertThat(response.getStatus()).isEqualTo(200);
-        Assertions.assertThat(response.getContent()).isEqualTo("OUI");
+        // Assertions.assertThat(response.getMethod()).isNull();
+        // Assertions.assertThat(response.getStatus()).isEqualTo(200);
+        // Assertions.assertThat(response.getContent()).isEqualTo("sebastien.devolder@gmail.com");
     }
 
-    @Test
-    public void testHeureux() throws IOException, Exception {
-        request.setURI("/?q=Es+tu+heureux+de+participer(OUI/NON)");
-        response.parse(tester.getResponses(request.generate()));
-
-        Assertions.assertThat(response.getMethod()).isNull();
-        Assertions.assertThat(response.getStatus()).isEqualTo(200);
-        Assertions.assertThat(response.getContent()).isEqualTo("OUI");
-    }
 }
