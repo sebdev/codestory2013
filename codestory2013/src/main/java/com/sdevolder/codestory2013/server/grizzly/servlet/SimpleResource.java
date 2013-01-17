@@ -38,7 +38,7 @@
  * holder.
  */
 
-package com.sdevolder.codestory2013.server.grizly.servlet;
+package com.sdevolder.codestory2013.server.grizzly.servlet;
 
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;

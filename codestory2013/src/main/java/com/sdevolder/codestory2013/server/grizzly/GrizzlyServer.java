@@ -1,4 +1,4 @@
-package com.sdevolder.codestory2013.server.grizly;
+package com.sdevolder.codestory2013.server.grizzly;
 
 import java.net.URI;
 
@@ -24,7 +24,7 @@ public class GrizzlyServer extends AbstractServer {
     public void launchServer() throws Exception {
 
         System.out.println("Starting grizzly...");
-        ResourceConfig rc = new PackagesResourceConfig("com.sdevolder.codestory2013.server.grizly.servlet");
+        ResourceConfig rc = new PackagesResourceConfig("com.sdevolder.codestory2013.server.grizzly.servlet");
         httpServer = GrizzlyServerFactory.createHttpServer(getBaseURI(), rc);
         System.in.read();
     }

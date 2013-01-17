@@ -1,7 +1,7 @@
 package com.sdevolder.codestory2013;
 
 import com.sdevolder.codestory2013.server.AbstractServer;
-import com.sdevolder.codestory2013.server.grizly.GrizzlyServer;
+import com.sdevolder.codestory2013.server.grizzly.GrizzlyServer;
 import com.sdevolder.codestory2013.server.jetty.JettyServer;
 
 public class Runner {
